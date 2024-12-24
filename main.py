@@ -37,8 +37,16 @@ elif choice == 3:
     db_manager.delete_person(id)
 elif choice == 4:
     print("Update Contact")
+    # List Contact and Update
+    id = input("Enter id: ")
+    db_manager.list_by_id(id)
+    name = input("Enter new name: ")
+    phone = input("Enter new phone: ")
+    db_manager.update_person(id, name, phone)
 elif choice == 5:
     print("Search Contact")
+    name = input("Enter name to search: ")
+    db_manager.search_person(name)
 elif choice == 6:
     print("List Single")
     id = input("Enter id: ")

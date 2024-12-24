@@ -51,3 +51,20 @@ class DatabaseManager:
         self.cursor.execute(sql, (id,))
         self.conn.commit()
         print("Person deleted successfully")
+    
+    def update_person(self, id, name, phone):
+        sql = "UPDATE persons SET name = %s, phone = %s WHERE id = %s"
+        self.cursor.execute(sql, (name, phone, id))
+        self.conn.commit()
+        print("Person updated successfully")
+    
+    def search_person(self, name):
+        sql = f"SELECT * FROM persons WHERE name LIKE '{name}%';" 
+        self.cursor.execute(sql)
+        rows = self.cursor.fetchall()
+        for row in rows:
+            person = Person(row[0], row[1], row[2])
+            person.display()
+        
+        if len(rows) == 0:
+            print("No person found")
