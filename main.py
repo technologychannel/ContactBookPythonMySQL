@@ -11,7 +11,6 @@ print("4. Update Contact")
 print("5. Search Contact")
 print("6. List Single")
 print("7. Exit")
-print("8. Send Mail to Each")
 print("----------------------------")
 
 choice = int(input("Enter your choice: "))
